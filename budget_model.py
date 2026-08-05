@@ -7,7 +7,6 @@ from sklearn.model_selection import train_test_split
 
 np.random.seed(42)
 n = 500  # number of simulated users
-
 # Feature Engineering
 income = np.random.normal(5000, 1000, n)
 fixed_ratio = np.random.uniform(0.3, 0.7, n)

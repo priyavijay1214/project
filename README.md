@@ -1,5 +1,5 @@
 # project
-Personal projects (Fintech + ML)
+Personal projects (Fintech + Machine Learning)
 # Budget Regression Model
 
 This project simulates a FinTech budgeting system using linear regression to predict next month's spending.

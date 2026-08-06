@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 # 1. Generate Synthetic Financial User Data
 
 np.random.seed(42)
+
 n = 500  # number of simulated users
 # Feature Engineering
 income = np.random.normal(5000, 1000, n)

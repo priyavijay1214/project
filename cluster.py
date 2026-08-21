@@ -19,7 +19,7 @@ X["frequency"] = np.log1p(X["frequency"])
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
-# ---------- Elbow + Silhouette to select k ----------
+# Elbow + Silhouette to select k 
 inertias, sils, dbs = [], [], []
 k_range = range(2, 10)
 for k in k_range:
@@ -38,14 +38,14 @@ print(f"Selected k = {best_k} (silhouette={sils[list(k_range).index(best_k)]:.3f
       f"chosen over the silhouette-maximizing k=3 for business interpretability "
       f"(k=3 merges Champions/Big Spenders into one bucket).")
 
-# ---------- Final model ----------
+# Final model 
 final_km = KMeans(n_clusters=best_k, random_state=42, n_init=10)
 df["cluster"] = final_km.fit_predict(X_scaled)
 final_sil = silhouette_score(X_scaled, df["cluster"])
 final_db = davies_bouldin_score(X_scaled, df["cluster"])
 print(f"Final model: k={best_k}, silhouette={final_sil:.3f}, davies-bouldin={final_db:.3f}")
 
-# ---------- Business labeling based on cluster centroids ----------
+# Business labeling based on cluster centroids 
 profile = df.groupby("cluster")[features].mean().round(1)
 profile["n_customers"] = df["cluster"].value_counts().sort_index()
 print("\nCluster profiles:\n", profile)
@@ -116,7 +116,7 @@ print("\nSegment sizes:\n", df["segment_label"].value_counts())
 if "true_segment" in pd.read_csv("/home/claude/customer-segmentation/customer_rfm.csv").columns:
     pass  # true_segment not carried into RFM table; cross-check separately below
 
-# ---------- Plots ----------
+# Plots
 fig, axes = plt.subplots(1, 3, figsize=(18, 5))
 
 axes[0].plot(list(k_range), inertias, marker="o")

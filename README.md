@@ -14,5 +14,7 @@ SQL-computed RFM (Recency, Frequency, Monetary) features and K-Means clustering.
 - Segment sizes range from 248 (Big Spenders) to 1,142 (Loyal Regulars) customers — realistic, actionable group sizes for targeted marketing campaigns.
 - Full cluster profiles in `results_summary.txt`, visualization in `segmentation_results.png`.
 
-## Stack
+## Stack/languages
 Python, SQLite (SQL window functions), pandas, scikit-learn (K-Means, PCA), matplotlib.
+
+

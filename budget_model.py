@@ -3,10 +3,9 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
+
 # 1. Generate Synthetic Financial User Data
-
 np.random.seed(42)
-
 n = 500  # number of simulated users
 # Feature Engineering
 income = np.random.normal(5000, 1000, n)
@@ -38,7 +37,6 @@ print("Sample Data:")
 print(df.head())
 
 # 2. Train/Test Split
-
 X = df.drop("next_month_spending", axis=1)
 y = df["next_month_spending"]
 
@@ -47,12 +45,10 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 # 3. Train Regression Model
-
 model = LinearRegression()
 model.fit(X_train, y_train)
 
 # 4. Evaluate Model Performance
-
 predictions = model.predict(X_test)
 
 mse = mean_squared_error(y_test, predictions)
@@ -65,7 +61,6 @@ print("MAE:", round(mae, 2))
 print("R^2:", round(r2, 3))
 
 # 5. Interpret Feature Importance
-
 coefficients = pd.DataFrame({
     "Feature": X.columns,
     "Coefficient": model.coef_
@@ -75,7 +70,6 @@ print("\nFeature Coefficients:")
 print(coefficients)
 
 # 6. Example User Prediction + Recommendation
-
 sample_user = pd.DataFrame({
     "income": [5200],
     "fixed_ratio": [0.5],

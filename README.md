@@ -1,5 +1,4 @@
 # Customer Segmentation (RFM + K-Means)
-
 Segments e-commerce customers into actionable marketing groups using
 SQL-computed RFM (Recency, Frequency, Monetary) features and K-Means clustering.
 
